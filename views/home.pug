@@ -1,6 +1,6 @@
 extends layout.pug
 
-block number1 
+block number1
     if error
         p.error Please Fill the input
 
@@ -22,6 +22,8 @@ block number1
                         a.done(href=`/${ todo.id}/update`) #{ todo.description}
                     else
                         a.undone(href=`/${ todo.id}/update`) #{ todo.description}
-                    a.delete(href=`/${ todo.id }/delete`) Delete
+                    div.delete_update_container
+                        a.delete(href=`/${ todo.id }/delete`) Delete
+                        a.update(href=`/${ todo.id }/update`) Update
         else
             p.todo No Tasks!

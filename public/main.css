@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: 1px solid tomato;
 }
 .wrapper {
     max-width: 800px;
@@ -37,7 +38,6 @@
 
 .todo {
     display: flex;
-    justify-content: space-between;
     padding: 10px;
     font-size: 1.5rem;
     border-bottom: 1px solid #ccc;
@@ -63,12 +63,24 @@
     border: 1px solid red;
 }
 
+.delete_update_container {
+    width: 200px;
+}
+
+.update,
 .delete {
     text-decoration: none;
     font-size: 1rem;
     padding: 5px;
-    background-color: tomato;
     color: white;
+}
+
+.delete {
+    background-color: tomato;
+}
+
+.update {
+    background-color: greenyellow;
 }
 
 .done,
