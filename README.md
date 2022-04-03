@@ -18,6 +18,13 @@ node app
 # Deps list
 - express
 - pug
+- ejs
+- passport
+- passport-local
+- method-override
+- express-session
+- express-flash
+- bcrypt
 
 # Link to the github repo
 https://github.com/00010983/App.git
