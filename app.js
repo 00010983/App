@@ -61,6 +61,25 @@ app.post('/add', (req, res) => {
     }
 })
 
+app.get('/:id/delete', (req, res) => {
+    //Saving the ID value
+    const id = req.params.id
+
+    fs.readFile('./data/todo.json', (err, data) => {
+        if (err) throw err
+
+        const todos = JSON.parse(data)
+
+        const filteredTodos = todos.filter(todo => todo.id != id)
+
+        fs.writeFile('./data/todo.json', JSON.stringify(filteredTodos), (err) => {
+            if (err) throw err
+            
+            res.render('home', { todos: filteredTodos, delete: true})
+        })
+    })
+})
+
 app.listen(PORT, (err) => {
     if(err) throw err
     console.log(`Running ${PORT}`)

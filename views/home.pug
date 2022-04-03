@@ -3,8 +3,13 @@ extends layout.pug
 block number1 
     if error
         p.error Please Fill the input
+
     if success
         p.success Good Job
+
+    if deleted
+        p.success Deleted 
+
     form.form(action='/add' method='POST')
         input.input(type='text', placeholder='Add your todo' name='todo')
         button.btn Add
@@ -12,6 +17,8 @@ block number1
     div.todos
         if (todos.length)  
             each todo in todos
-                p.todo #{ todo.description}
+                p.todo 
+                    span #{ todo.description}
+                    a.delete(href=`/${ todo.id }/delete`) Delete
         else
             p.todo No Tasks!

@@ -36,6 +36,8 @@
 }
 
 .todo {
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
     font-size: 1.5rem;
     border-bottom: 1px solid #ccc;
@@ -59,4 +61,12 @@
 .error {
     color: red;
     border: 1px solid red;
+}
+
+.delete {
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px;
+    background-color: tomato;
+    color: white;
 }
