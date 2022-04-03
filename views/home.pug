@@ -1,18 +1,19 @@
 extends layout.pug
 
 block number1
+    p.text LIST STATUS
     if error
-        p.error Please Fill the input
+        p.error ENTER THE TASK
 
     if success
-        p.success Good Job
+        p.success TASK ADDED
 
     if deleted
         p.success Deleted 
-
-    form.form(action='/add' method='POST')
-        input.input(type='text', placeholder='Add your todo' name='todo')
-        button.btn Add
+    div.form_container
+        form.form(action='/add' method='POST')
+            input.input(type='text', placeholder='ADD THE TASK' name='todo')
+            button.btn +
 
     div.todos
         if (todos.length)  
@@ -22,8 +23,8 @@ block number1
                         a.done(href=`/${ todo.id}/update`) #{ todo.description}
                     else
                         a.undone(href=`/${ todo.id}/update`) #{ todo.description}
-                    div.delete_update_container
-                        a.delete(href=`/${ todo.id }/delete`) Delete
-                        a.update(href=`/${ todo.id }/update`) Update
+                    if todo.undo
+                        a.done(href=`/${ todo.id}/update`) #{ todo.description}
+                    a.delete(href=`/${ todo.id }/delete`) Delete
         else
-            p.todo No Tasks!
+            p.todo Add tasks

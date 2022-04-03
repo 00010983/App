@@ -41,7 +41,7 @@ app.post('/add', (req, res) => {
             const todo = {
                 id: id(),
                 description: formData.todo,
-                done: false
+                done: false 
             }
 
             todos.push(todo)
@@ -135,7 +135,7 @@ initializePassport(
     email => users.find(user => user.email === email),
     id => users.find(user => user.id === id)
 )
-  
+
 const users = []
 
 app.use(flash())
@@ -175,10 +175,24 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
         password: hashedPassword
       })
       res.redirect('/login')
-    } catch {
+    } 
+    catch {
       res.redirect('/register')
     }
     console.log(users)
+
+    fs.writeFile('./data/user.json', JSON.stringify(users), (err) => {
+        if(err) throw err
+
+        fs.readFile('./data/user.json', (err, data) => {
+            if (err) throw err
+
+            const users = JSON.parse(data)
+
+            res.render('home', {success: true, users: users})
+        })
+    })
+    console.log(users.id)
 })
   
 app.delete('/logout', (req, res) => {

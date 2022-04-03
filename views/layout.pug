@@ -1,12 +1,21 @@
 doctype html 
 html(lang='en')
     head
-        title TO DO APP
+        title 
         link(rel='stylesheet', href='/static/main.css')
     body
     nav
         a(href="/login") Login 
 
     div.wrapper
-        h1.logo TO DO APP 
-        block number1  
+        h1.logo Task Manager
+        div.date
+            h2 Today:
+            h3.demo !
+        block number1 
+
+    script 
+        const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        const d = new Date();
+        let day = weekday[d.getDay()];
+        document.getElementById("demo").innerHTML = day;
