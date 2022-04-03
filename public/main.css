@@ -70,3 +70,13 @@
     background-color: tomato;
     color: white;
 }
+
+.done,
+.undone {
+    text-decoration: none;
+    color: black;
+}
+
+.done {
+    text-decoration: line-through;
+}

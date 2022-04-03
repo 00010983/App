@@ -80,6 +80,34 @@ app.get('/:id/delete', (req, res) => {
     })
 })
 
+app.get('/:id/update', (req, res) => {
+    const id = req.params.id
+
+    fs.readFile('./data/todo.json', (err, data) => {
+        if (err) throw err
+        // Indetify the TODO to change 
+        const todos = JSON.parse(data)
+        const todo = todos.filter(todo => todo.id == id)[0]
+
+        //Getting it
+        const todoIdx = todos.indexOf(todo)
+        const splicedTodo = todos.splice(todoIdx, 1)[0]
+
+        //Changing the status
+        splicedTodo.done = true
+
+        //Adding it back
+        todos.push(splicedTodo)
+
+        fs.writeFile('./data/todo.json', JSON.stringify(todos), (err) => {
+            if (err) throw err
+
+            res.render(`home`, { todos: todos })
+        })
+    })
+    
+})
+
 app.listen(PORT, (err) => {
     if(err) throw err
     console.log(`Running ${PORT}`)
