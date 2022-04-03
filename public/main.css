@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper {
+    max-width: 800px;
+    margin: 50px auto;
+}
+.logo {
+    text-align: center;
+    font-size: 4rem;
+}
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.input {
+    display: inline-block;
+    padding: 10px;
+    font-size: 1.5rem;
+    width: 80%;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    border: none;
+    background-color: rgb(151, 116, 184);
+}
+.todos {
+    margin-top: 25px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.todo {
+    padding: 10px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #ccc;
+}
+.todo:hover{
+    background-color: grey;
+}
+
+.error,
+.success {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.success {
+    color: green;
+    border: 1px solid green;
+}
+
+.error {
+    color: red;
+    border: 1px solid red;
+}
