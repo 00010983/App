@@ -3,7 +3,7 @@
 # Instructions
 # GIT
 1. Download the source code
-git clone [url to the github repo]
+git clone [https://github.com/00010983/App.git]
 
 # Install deps
 ```bash
@@ -20,4 +20,4 @@ node app
 - pug
 
 # Link to the github repo
-[]
+[https://github.com/00010983/App.git]
