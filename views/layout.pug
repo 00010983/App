@@ -3,19 +3,23 @@ html(lang='en')
     head
         title 
         link(rel='stylesheet', href='/static/main.css')
+        script(src="/static/app.js")
     body
     nav
-        a(href="/login") Login 
+        div
+            if error
+                p.error ENTER THE TASK
+
+            if success
+                p.success TASK ADDED
+
+            if deleted
+                p.success Deleted 
+        a(href="/login") LOGIN 
 
     div.wrapper
         h1.logo Task Manager
         div.date
             h2 Today:
-            h3.demo !
-        block number1 
-
-    script 
-        const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-        const d = new Date();
-        let day = weekday[d.getDay()];
-        document.getElementById("demo").innerHTML = day;
+            p(id = "demo") Tuesday
+        block number1

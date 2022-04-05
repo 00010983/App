@@ -2,19 +2,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 nav {
     width: 100%;
     background-color: tomato;
     height: 5vh;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     border-radius: 0 0 5px 5px;
     height: 100%;
     align-items: center;
 }
 
-nav > a {
+nav > a, .error, .success {
     background-color: tomato;
     height: 5vh;
     margin-right: 15px;
@@ -35,11 +36,13 @@ nav > a {
 
 .date {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: start;
 }
 
-.date > h3, h2 {
-    color: rgb(56, 56, 56);
+.date > p, h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: tomato;
 }
 
 .form_container {
@@ -60,7 +63,6 @@ nav > a {
     width: 80%;
     border-radius: 5px;
     outline: 0;
-    -moz-outline-style: none;
     border: 1px solid tomato;
     transition: 0.5s ease-in-out;
 }
@@ -70,7 +72,7 @@ nav > a {
 }
 
 .input:focus {
-    border: 1px solid #3498db;
+    border: 1.5px solid rgb(255, 84, 54);
 }
 
 .btn {
@@ -110,24 +112,31 @@ nav > a {
     background-color: rgb(253, 236, 232);
 }
 
+.star {
+    text-decoration: none;
+    color: black;
+}
+
+.star:hover {
+    color: yellow;
+}
+
 .error,
 .success,
 .text {
     text-align: center;
     font-size: 1.2rem;
-    margin-bottom: 15px;
 }
 
-.success {
-    color: rgb(46, 148, 46);
-}
-
-.error {
-    color: tomato;
+.update_delete {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .update,
-.delete {
+.delete,
+.updateText {
     text-decoration: none;
     font-size: 1rem;
     padding: 5px;
@@ -137,10 +146,14 @@ nav > a {
 
 .delete {
     background-color: tomato;
+    border: 1px solid black;
 }
 
-.update {
-    background-color: greenyellow;
+.updateText {
+    color: tomato;
+    border: 1px solid tomato;
+    background-color: #fff;
+    cursor: pointer;
 }
 
 .done,
@@ -166,3 +179,60 @@ a:hover {
     justify-content: center;
     align-items: center;
 }
+
+.update {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.showEditWindows {
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+
+
+input[type="checkbox"] {
+    display: grid;
+    place-content: center;
+}
+  input[type="checkbox"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.08em;
+    height: 1.08em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.2em;
+    transform: translateY(-0.075em);
+  }
+  
+  .form-control + .form-control {
+    margin-top: 1em;
+  }
+
+  input[type="checkbox"] {
+    display: grid;
+    cursor: pointer;
+    place-content: center;
+  }
+  
+  input[type="checkbox"]::before {
+    content: "";
+    width: 0.6em;
+    height: 0.6em;
+    border-radius: 0.1em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em tomato;
+  }
+  
+  input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }

@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+//Used Port is 8000
 const PORT = 8000
 const fs = require('fs')
 
@@ -26,6 +27,7 @@ app.post('/add', (req, res) => {
     if(formData.todo.trim() == '') {
 
         fs.readFile('./data/todo.json', (err, data) => {
+            //Throwing the error message if so
             if (err) throw err
 
             const todos = JSON.parse(data)
@@ -35,6 +37,7 @@ app.post('/add', (req, res) => {
     }
     else {
         fs.readFile('./data/todo.json', (err, data) => {
+            //Throwing the error message if so
             if (err) throw err
             const todos = JSON.parse(data)
 
@@ -47,9 +50,11 @@ app.post('/add', (req, res) => {
             todos.push(todo)
 
             fs.writeFile('./data/todo.json', JSON.stringify(todos), (err) => {
+                //Throwing the error message if so
                 if(err) throw err
 
                 fs.readFile('./data/todo.json', (err, data) => {
+                    //Throwing the error message if so
                     if (err) throw err
 
                     const todos = JSON.parse(data)
@@ -66,6 +71,7 @@ app.get('/:id/delete', (req, res) => {
     const id = req.params.id
 
     fs.readFile('./data/todo.json', (err, data) => {
+        //Throwing the error message if so
         if (err) throw err
 
         const todos = JSON.parse(data)
@@ -73,6 +79,7 @@ app.get('/:id/delete', (req, res) => {
         const filteredTodos = todos.filter(todo => todo.id != id)
 
         fs.writeFile('./data/todo.json', JSON.stringify(filteredTodos), (err) => {
+            //Throwing the error message if so
             if (err) throw err
             
             res.render('home', { todos: filteredTodos, delete: true})
@@ -84,6 +91,7 @@ app.get('/:id/update', (req, res) => {
     const id = req.params.id
 
     fs.readFile('./data/todo.json', (err, data) => {
+        //Throwing the error message if so
         if (err) throw err
         // Indetify the TODO to change 
         const todos = JSON.parse(data)
@@ -100,6 +108,7 @@ app.get('/:id/update', (req, res) => {
         todos.push(splicedTodo)
 
         fs.writeFile('./data/todo.json', JSON.stringify(todos), (err) => {
+            //Throwing the error message if so
             if (err) throw err
 
             res.render(`home`, { todos: todos })
@@ -109,8 +118,9 @@ app.get('/:id/update', (req, res) => {
 })
 
 app.listen(PORT, (err) => {
+    //Throwing the error message if so
     if(err) throw err
-    console.log(`Running ${PORT}`)
+    console.log(`Running on the port ${PORT}`)
 })
 
 function id () {
@@ -137,6 +147,7 @@ initializePassport(
 )
 
 const users = []
+const userId = users.id
 
 app.use(flash())
 app.use(session({
@@ -147,10 +158,7 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(methodOverride('_method'))
-  
-app.get('/', checkAuthenticated, (req, res) => {
-    res.render('index.ejs', { name: req.user.name })
-})
+
 app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs')
 })
@@ -180,11 +188,14 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
       res.redirect('/register')
     }
     console.log(users)
+    console.log(userId)
 
     fs.writeFile('./data/user.json', JSON.stringify(users), (err) => {
+        //Throwing the error message if so
         if(err) throw err
 
         fs.readFile('./data/user.json', (err, data) => {
+            //Throwing the error message if so
             if (err) throw err
 
             const users = JSON.parse(data)
@@ -214,4 +225,16 @@ function checkNotAuthenticated(req, res, next) {
     }
     next()
 }
-  
+    
+
+//Update
+app.get('/update', (req, res) => {
+    res.render('update.ejs')
+})
+
+//Priotization
+
+
+//Date
+var datetime = new Date();
+console.log(datetime.toISOString().slice(0,10));
