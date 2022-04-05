@@ -5,10 +5,10 @@ const PORT = 8000
 const fs = require('fs')
 
 //Viewing engine is pug with some addiotional ejs (HTML markup)
-app.set('view engine', 'ejs')
+app.set('view engine', 'pug')
 app.use('/static', express.static('public'))
 app.use(express.urlencoded( { 
-    extended: false
+    extended: true
 }))
 
 app.get('/', (req, res) => {
