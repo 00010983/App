@@ -7,7 +7,6 @@
 nav {
     width: 100%;
     background-color: tomato;
-    height: 5vh;
     display: flex;
     justify-content: space-between;
     border-radius: 0 0 5px 5px;
@@ -15,9 +14,20 @@ nav {
     align-items: center;
 }
 
+nav > div {
+    padding-left: 15px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: tomato;
+}
+
 nav > a, .error, .success {
     background-color: tomato;
-    height: 5vh;
+    padding: 10px 0;
+    font-weight: bold;
     margin-right: 15px;
     font-size: 1.2rem;
     text-decoration: none;
@@ -76,8 +86,8 @@ nav > a, .error, .success {
 }
 
 .btn {
+    border: 1px solid black;
     border-radius: 50%;
-    text-align: center;
     width: 40px;
     height: 40px;
     color: white;
@@ -100,6 +110,8 @@ nav > a, .error, .success {
 }
 
 .todo {
+    color: tomato;
+    font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
     padding: 10px;
@@ -117,6 +129,11 @@ nav > a, .error, .success {
     color: black;
 }
 
+.text {
+    color: tomato;
+    font: 1.4rem;
+    font-weight: bold;
+}
 .star:hover {
     color: yellow;
 }
@@ -156,12 +173,6 @@ nav > a, .error, .success {
     cursor: pointer;
 }
 
-.done,
-.undone {
-    text-decoration: none;
-    color: black;
-}
-
 .done {
     text-decoration: line-through;
 }
@@ -180,6 +191,16 @@ a:hover {
     align-items: center;
 }
 
+.login > h1, .register >h1 {
+    color: tomato;
+    font-size: 2.5rem;
+}
+
+.login > form > div, .login > form > button, .register > form > div, .register > form > button {
+    color: tomato;
+    font-size: 1.2rem;
+}
+
 .update {
     display: flex;
     justify-content: center;
@@ -194,13 +215,12 @@ a:hover {
     height: 100px;
 }
 
-
-
 input[type="checkbox"] {
     display: grid;
     place-content: center;
 }
-  input[type="checkbox"] {
+
+input[type="checkbox"] {
     appearance: none;
     background-color: #fff;
     margin: 0;
@@ -211,19 +231,19 @@ input[type="checkbox"] {
     border: 0.15em solid currentColor;
     border-radius: 0.2em;
     transform: translateY(-0.075em);
-  }
+}
   
-  .form-control + .form-control {
+.form-control + .form-control {
     margin-top: 1em;
-  }
+}
 
   input[type="checkbox"] {
     display: grid;
     cursor: pointer;
     place-content: center;
-  }
+}
   
-  input[type="checkbox"]::before {
+input[type="checkbox"]::before {
     content: "";
     width: 0.6em;
     height: 0.6em;
@@ -231,8 +251,27 @@ input[type="checkbox"] {
     transform: scale(0);
     transition: 120ms transform ease-in-out;
     box-shadow: inset 1em 1em tomato;
-  }
+}
   
-  input[type="checkbox"]:checked::before {
+input[type="checkbox"]:checked::before {
     transform: scale(1);
-  }
+}
+
+footer {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    font-size: 1.1rem;
+    align-items: center;
+    height: 100%;
+    background-color: tomato;
+    border-radius: 5px 5px 0 0;
+    bottom: 0;
+}
+
+footer > div {
+    padding: 10px 0;
+    color: white;
+}
+

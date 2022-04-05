@@ -14,12 +14,14 @@ html(lang='en')
                 p.success TASK ADDED
 
             if deleted
-                p.success Deleted 
+                p.success DELETED 
         a(href="/login") LOGIN 
 
     div.wrapper
-        h1.logo Task Manager
+        h1.logo TASK MANAGER
         div.date
-            h2 Today:
-            p(id = "demo") Tuesday
+            h2 TODAY:
+            p#demo TUESDAY
         block number1
+    footer 
+        div This web application was created to fulfill Web Technology module’s requirements and does not represent an actual company or service

@@ -1,4 +1,9 @@
 # TO DO APP
+The Application list tasks that need to be completed, and organized in order of priority by giving the values to the Checkboxes
+- Stay in Sync 
+- Displaying Date
+- Adding new TODO
+- Changing the Status of TODO DONE FALSE -> TRUE (And reverse)
 
 # Instructions
 # GIT

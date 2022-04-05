@@ -4,7 +4,7 @@ const app = express()
 const PORT = 8000
 const fs = require('fs')
 
-
+//Viewing engine is pug with some addiotional ejs (HTML markup)
 app.set('view engine', 'pug')
 app.use('/static', express.static('public'))
 app.use(express.urlencoded( { 
@@ -13,6 +13,7 @@ app.use(express.urlencoded( {
 
 app.get('/', (req, res) => {
     fs.readFile('./data/todo.json', (err, data) => {
+        //Throwing the error message if so
         if (err) throw err
 
         const todos = JSON.parse(data)
@@ -40,13 +41,16 @@ app.post('/add', (req, res) => {
             //Throwing the error message if so
             if (err) throw err
             const todos = JSON.parse(data)
-
+            //Building to JSON with block as
+            //Id
+            //Description or Text of TODO
+            //Status Done True or False
             const todo = {
                 id: id(),
                 description: formData.todo,
                 done: false 
             }
-
+            //Adding it back
             todos.push(todo)
 
             fs.writeFile('./data/todo.json', JSON.stringify(todos), (err) => {
@@ -75,13 +79,13 @@ app.get('/:id/delete', (req, res) => {
         if (err) throw err
 
         const todos = JSON.parse(data)
-
+        //filtering and finding all the values where id values' dont match the given values by the USER 
         const filteredTodos = todos.filter(todo => todo.id != id)
 
         fs.writeFile('./data/todo.json', JSON.stringify(filteredTodos), (err) => {
             //Throwing the error message if so
             if (err) throw err
-            
+            //Giving the rendered Home page where we no longer have Deleted TODO
             res.render('home', { todos: filteredTodos, delete: true})
         })
     })
@@ -120,7 +124,7 @@ app.get('/:id/update', (req, res) => {
 app.listen(PORT, (err) => {
     //Throwing the error message if so
     if(err) throw err
-    console.log(`Running on the port ${PORT}`)
+    console.log(`Running on the port: ${PORT}`)
 })
 
 function id () {
@@ -231,10 +235,12 @@ function checkNotAuthenticated(req, res, next) {
 app.get('/update', (req, res) => {
     res.render('update.ejs')
 })
+//Cannot get the value of the TODO list id
 
 //Priotization
-
+//Checkbox items
 
 //Date
 var datetime = new Date();
 console.log(datetime.toISOString().slice(0,10));
+//The value used in the main pug (layout.pug) to display today's date
