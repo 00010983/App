@@ -33,3 +33,6 @@ node app
 
 # Link to the github repo
 https://github.com/00010983/App.git
+
+# Link to Glitch Hosting 
+https://fluff-quiet-otter.glitch.me/
